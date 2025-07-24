@@ -22,7 +22,7 @@ build_script:
   - cmake --build . --config %CONFIGURATION% --parallel
 
 after_build:
-  - cd %CONFIGURATION%
+  - cd build/%CONFIGURATION%
   - kirara.exe
 
 test_script:

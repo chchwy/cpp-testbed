@@ -4,9 +4,9 @@
 #include<format>
 
 int main() {
-    std::string path = "/path/to/directory";
+    std::string path = "C:/path/to/directory";
     std::filesystem::path dirPath(path);
 
-    std::cout << dirPath.string() << std::endl;
+    std::cout << "Out:" << dirPath.string() << std::endl;
     return 0;
 }

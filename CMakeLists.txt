@@ -7,3 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(kirara main.cpp)
 
+target_compile_definitions(kirara PRIVATE
+    UNICODE
+    _UNICODE
+)
