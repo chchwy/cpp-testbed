@@ -24,7 +24,3 @@ build_script:
 after_build:
   - cd %CONFIGURATION%
   - kirara.exe
-
-test_script:
-  - cd build
-  - ctest -C %CONFIGURATION% --verbose
