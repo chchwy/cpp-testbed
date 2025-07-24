@@ -13,7 +13,7 @@ install:
   - git --version
 
 before_build:
-- echo 'before build'
+- echo 'Configuration is %CONFIGURATION%'
 
 build_script:
   - mkdir build
@@ -22,9 +22,7 @@ build_script:
   - cmake --build . --config %CONFIGURATION% --parallel
 
 after_build:
-  - pwd
-  - echo %CONFIGURATION%
-  - cd build/%CONFIGURATION%
+  - cd %CONFIGURATION%
   - kirara.exe
 
 test_script:
