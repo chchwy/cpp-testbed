@@ -22,6 +22,8 @@ build_script:
   - cmake --build . --config %CONFIGURATION% --parallel
 
 after_build:
+  - pwd
+  - echo %CONFIGURATION%
   - cd build/%CONFIGURATION%
   - kirara.exe
 
