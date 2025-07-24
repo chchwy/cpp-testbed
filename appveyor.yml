@@ -1,0 +1,29 @@
+version: 1.0.{build}
+
+image: Visual Studio 2022
+
+platform:
+  - x64
+
+configuration:
+  - Release
+
+install:
+  - cmake --version
+  - git --version
+
+before_build:
+  - mkdir build
+  - cd build
+  - cmake -G "Visual Studio 17 2022" -A x64 ..
+
+build:
+  - cmake --build . --config %CONFIGURATION% --parallel
+
+after_build:
+  - cd %CONFIGURATION%
+  - kirara.exe
+
+test_script:
+  - cd build
+  - ctest -C %CONFIGURATION% --verbose
