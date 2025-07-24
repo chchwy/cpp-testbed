@@ -13,11 +13,12 @@ install:
   - git --version
 
 before_build:
+- echo 'before build'
+
+build_script:
   - mkdir build
   - cd build
   - cmake -G "Visual Studio 17 2022" -A x64 ..
-
-build_script:
   - cmake --build . --config %CONFIGURATION% --parallel
 
 after_build:
