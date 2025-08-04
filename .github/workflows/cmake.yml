@@ -38,6 +38,10 @@ jobs:
 
     - name: Build
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+    
+    - name: Run
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: ./testbed
 
     - name: Test
       working-directory: ${{ steps.strings.outputs.build-output-dir }}

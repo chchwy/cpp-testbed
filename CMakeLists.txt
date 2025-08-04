@@ -10,4 +10,6 @@ add_executable(testbed
     doctest.h
     cpp17-filesystem.cpp)
 
-add_test(NAME testbed COMMAND testbed)
+if(MSVC)
+    set_target_properties(testbed PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()

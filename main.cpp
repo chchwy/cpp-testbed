@@ -6,7 +6,7 @@ int main(int argc, const char* const* argv) {
     
     context.applyCommandLine(argc, argv);
 
-    int res = context.run(); // Run the tests
+    int res = context.run();
     if (context.shouldExit()) {
         return res; // Exit if requested
     }
