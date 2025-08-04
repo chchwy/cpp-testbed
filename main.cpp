@@ -1,12 +1,14 @@
-#include<filesystem>
-#include<iostream>
-#include<string>
-#include<format>
+#define DOCTEST_CONFIG_IMPLEMENT
+#include "doctest.h"
 
-int main() {
-    std::string path = "C:/path/to/directory";
-    std::filesystem::path dirPath(path);
+int main(int argc, const char* const* argv) {
+    doctest::Context context;
+    
+    context.applyCommandLine(argc, argv);
 
-    std::cout << "Out:" << dirPath.string() << std::endl;
-    return 0;
+    int res = context.run(); // Run the tests
+    if (context.shouldExit()) {
+        return res; // Exit if requested
+    }
+    return res;
 }
