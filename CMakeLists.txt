@@ -8,8 +8,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_executable(testbed
     main.cpp
     doctest.h
+    cpp14.cpp
     cpp17-filesystem.cpp
-    cpp14.cpp)
+    cpp20.cpp
+)
 
 if(MSVC)
     set_target_properties(testbed PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
