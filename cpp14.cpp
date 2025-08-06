@@ -1,5 +1,8 @@
 #include <iostream>
 #include <bitset>
+#include <map>
+#include <tuple>
+#include <string>
 #include "doctest.h"
 
 TEST_CASE("C++14 Binary Literals") {
@@ -18,4 +21,11 @@ TEST_CASE("C++14 Binary Literals") {
     CHECK(0b011101110111 == 0x777);
     std::bitset<8> bits(0b10000000);
     CHECK(bits.to_ulong() == 128);
+}
+
+TEST_CASE("C++14 Get to know Variable Types") {
+    int x = 42;
+    auto t = std::make_tuple(x);
+    //decltype(t)::foo = 1; // Intentionally use non-existing member named foo
+    // To force compiler to print an error with the actual type of t
 }
