@@ -42,3 +42,36 @@ TEST_CASE("C++14 Get to know Variable Types") {
     //decltype(t)::foo = 1; // Intentionally use non-existing member named foo
     // To force compiler to print an error with the actual type of t
 }
+
+TEST_CASE("C++14 Structured Bindings") {
+
+    // Structured bindings allow unpacking tuples, pairs, and arrays
+    auto [a, b, c] = std::make_tuple(1, 2.5, "Hello");
+    CHECK(a == 1);
+    CHECK(b == 2.5);
+    CHECK(std::string(c) == "Hello");
+
+    auto [x, y] = std::pair<int, double>(3, 1000.5);
+    CHECK(x == 3);
+    CHECK(y == 1000.5);
+
+    // Structured bindings with arrays
+    int arr[] = {1, 2, 3};
+    auto [first, second, third] = arr;
+    CHECK(first == 1);
+    CHECK(second == 2);
+    CHECK(third == 3);
+
+    // Structured bindings with std::map
+    std::map<std::string, int> myMap = {{"one", 1}, {"two", 2}, {"three", 3}};
+    for (const auto& [key, value] : myMap) {
+        std::cout << key << ": " << value << std::endl;
+        if (key == "one") {
+            CHECK(value == 1);
+        } else if (key == "two") {
+            CHECK(value == 2);
+        } else if (key == "three") {
+            CHECK(value == 3);
+        }
+    }
+}
