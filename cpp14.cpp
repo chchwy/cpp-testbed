@@ -23,6 +23,19 @@ TEST_CASE("C++14 Binary Literals") {
     CHECK(bits.to_ulong() == 128);
 }
 
+TEST_CASE ("C++14 Generic Lambdas") {
+    auto add = [](auto a, auto b) {
+        return a + b;
+    };
+
+    CHECK(add(2, 3) == 5);
+    CHECK(add(2.5f, 3.5) == 6.0);
+
+    std::string str1 = "Hello, ";
+    std::string str2 = "Matt!";
+    CHECK(add(str1, str2) == "Hello, Matt!");
+}
+
 TEST_CASE("C++14 Get to know Variable Types") {
     int x = 42;
     auto t = std::make_tuple(x);
