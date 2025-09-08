@@ -65,7 +65,7 @@ TEST_CASE("C++14 Structured Bindings") {
     // Structured bindings with std::map
     std::map<std::string, int> myMap = {{"one", 1}, {"two", 2}, {"three", 3}};
     for (const auto& [key, value] : myMap) {
-        std::cout << key << ": " << value << std::endl;
+        //std::cout << key << ": " << value << std::endl;
         if (key == "one") {
             CHECK(value == 1);
         } else if (key == "two") {

@@ -11,6 +11,7 @@ add_executable(testbed
     cpp14.cpp
     cpp17-filesystem.cpp
     cpp20.cpp
+    error_handling.cpp
 )
 
 if(MSVC)
