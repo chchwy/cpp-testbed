@@ -1,0 +1,33 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "CMake Build",
+			"type": "shell",
+			"command": "cmake --build build --config Release",
+			"args": [],
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run Executable",
+			"type": "shell",
+			"command": "./build/testbed",
+			"group": "none"
+		},
+		{
+			"label": "Build and Run",
+			"dependsOn": [
+				"CMake Build",
+				"Run Executable"
+			],
+			"dependsOrder": "sequence",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
