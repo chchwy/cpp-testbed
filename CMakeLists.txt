@@ -8,10 +8,13 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_executable(testbed
     main.cpp
     doctest.h
+    rvalue.cpp
     cpp14.cpp
     cpp17-filesystem.cpp
     cpp20.cpp
     error_handling.cpp
+    string_view.cpp
+)
 )
 
 if(MSVC)
