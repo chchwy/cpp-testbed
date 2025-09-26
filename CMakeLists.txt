@@ -14,6 +14,7 @@ add_executable(testbed
     cpp20.cpp
     error_handling.cpp
     string_view.cpp
+    auto_type.cpp
 )
 )
 

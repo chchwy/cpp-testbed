@@ -32,8 +32,8 @@ TEST_CASE("Test auto type deduction: Pointer") {
     auto p4 = cpx3; // const int* const
     CHECK((std::is_same_v<decltype(p1), int*>));
     CHECK((std::is_same_v<decltype(p2), const int*>));
-    CHECK((std::is_same_v<decltype(p3), int* const>));
-    CHECK((std::is_same_v<decltype(p4), const int* const>));
+    CHECK((std::is_same_v<decltype(p3), int*>));
+    CHECK((std::is_same_v<decltype(p4), const int*>));
 }
 
 TEST_CASE("Test auto type deduction: Reference") {
@@ -68,4 +68,18 @@ TEST_CASE("Test auto type deduction: Const Reference") {
     CHECK((std::is_same_v<decltype(r2), const int&>));
     CHECK((std::is_same_v<decltype(r3), const int&>));
     CHECK((std::is_same_v<decltype(r4), const int&>));
+}
+
+TEST_CASE("Test auto and brace initialization") {
+
+    auto v1{42};          // int
+    auto v2{3.14};        // double
+    auto v3{std::string("Hello")}; // std::string
+    auto v4 = {1, 2, 3};  // std::initializer_list<int>
+    //auto v5 {1, 2, 3};  // error: too many initializers for 'int'
+    CHECK((std::is_same_v<decltype(v1), int>));
+    CHECK((std::is_same_v<decltype(v2), double>));
+    CHECK((std::is_same_v<decltype(v3), std::string>));
+    CHECK((std::is_same_v<decltype(v4), std::initializer_list<int>>));
+    //CHECK((std::is_same_v<decltype(v5), int>)); 
 }
